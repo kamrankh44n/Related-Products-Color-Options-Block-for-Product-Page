@@ -1,0 +1,45 @@
+1) Scroll lower down in main-product.liquid until you find a line that says {% schema %} (or just search for ‘{% schema %}’). In the beginning of the schema you should see a few lines like this:
+{% schema %}
+{
+  "name": "t:sections.main-product.name",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+
+2)Paste the following code directly onto the next line after “blocks”: [ (Press enter to move the app block lower down)
+
+{
+  "type": "related_products",
+  "name": "⚡️ Related Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Related Products"
+    },
+	{
+      "type": "number",
+      "id": "heading_font_size",
+      "label": "Heading font size (px)",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "hover_border_color",
+      "label": "Border color (hover)",
+      "default": "#121212",
+      "info": "Make color field blank (transparent) if you don't want a border"
+    }
+  ]
+},
+
+The main output code
+Search for the line that says {%- case block.type -%}. There will only be one of these in the whole file. It should be directly under another line that says {%- for block in section.blocks -%}. This is where all of the product information blocks are added.
+Paste the following code on the line directly under {%- case block.type -%}. The next line would normally be {%- when '@app' -%} so just place your cursor before this line and hit enter to make a new line and move that one down.
